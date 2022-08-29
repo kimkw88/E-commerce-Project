@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+body, #logout {
+	margin: 0;
+	/* background: #222; */
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 800;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+}
+
+header, #logout {
+  background: #224c8b;
+  color: #fff;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.logo {
+  float: left;
+  padding: 3px 0;
+  text-decoration: none;
+  color: #fff;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  position: relative;
+  margin-left: 70px;
+  padding-top: 23px;
+}
+
+nav a, #logout {
+  /* color: #444; */
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a:hover, #logout:hover {
+  color: #e7e7e7;
+}
+
+nav a::before, #logout::before {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: #e7e7e7;
+  top: 0;
+  width: 0%;
+  height: 5px;
+  transition: all ease 250ms;
+}
+
+nav a:hover::before, #logout:hover::before {
+  width: 100%;
+}
+
+#logout {
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.bodyContainer {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+
+.gallery-container div {
+  width: 80%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-container img {
+  height: 300px;
+}
+
+#galleryPrevBtn, #galleryNextBtn {
+  border: none;
+  font-size: 40px;
+  width: 60px;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}

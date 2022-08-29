@@ -19,6 +19,8 @@ router.get("/carts/find/:userId", async (req, res) => {
   // console.log("req.params.userId:", req.params.userId);
   try {
     const cart = await Cart.find();
+    console.log(cart[0].userId);
+    console.log(req.params.userId);
     res.write(`
     <header>
       <div class="container">
@@ -49,16 +51,20 @@ router.get("/carts/find/:userId", async (req, res) => {
           <th>Quantity</th>
           <th>Price</th>
         </tr>`);
+
     for (let i = 0; i < cart.length; i++) {
-      res.write(`
-      <tr>
-        <td>${cart[i].userId}</td>
-        <td>${cart[i].productId}</td>
-        <td>${cart[i].title}</td>
-        <td>${cart[i].quantity}</td>
-        <td>${cart[i].price}</td>
-      </tr>`);
+      if (cart[i].userId === req.params.userId) {
+        res.write(`
+          <tr>
+            <td>${cart[i].userId}</td>
+            <td>${cart[i].productId}</td>
+            <td>${cart[i].title}</td>
+            <td>${cart[i].quantity}</td>
+            <td>${cart[i].price}</td>
+          </tr>`);
+      }
     }
+
     res.write(`</tbody></table>`);
     res.write(`
     <div>

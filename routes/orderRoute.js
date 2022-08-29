@@ -48,18 +48,22 @@ router.get("/orders/find/:userId", async (req, res) => {
           <th>Address</th>
           <th>Status</th>
         </tr>`);
+
     for (let i = 0; i < order.length; i++) {
-      res.write(`
-      <tr>
-        <td>${order[i].userId}</td>
-        <td>${order[i].productId}</td>
-        <td>${order[i].title}</td>
-        <td>${order[i].quantity}</td>
-        <td>$${order[i].amount}</td>
-        <td>${order[i].address}</td>
-        <td>${order[i].status}</td>
-      </tr>`);
+      if (order[i].userId === req.params.userId) {
+        res.write(`
+          <tr>
+            <td>${order[i].userId}</td>
+            <td>${order[i].productId}</td>
+            <td>${order[i].title}</td>
+            <td>${order[i].quantity}</td>
+            <td>$${order[i].amount}</td>
+            <td>${order[i].address}</td>
+            <td>${order[i].status}</td>
+          </tr>`);
+      }
     }
+
     res.write(`</tbody></table>`);
     res.end();
   } catch (err) {

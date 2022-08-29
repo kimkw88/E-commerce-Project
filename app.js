@@ -35,4 +35,8 @@ app.use(orderRoute);
 
 app.use(express.static(path.join(__dirname, "/public")));
 
+app.get("*", function (req, res) {
+  res.status(404).redirect("/");
+});
+
 module.exports = app;
